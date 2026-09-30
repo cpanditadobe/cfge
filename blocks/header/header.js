@@ -159,7 +159,11 @@ function toggleMenu(nav, force = null) {
   const expanded = force !== null ? force : nav.getAttribute('aria-expanded') !== 'true';
   nav.setAttribute('aria-expanded', expanded ? 'true' : 'false');
   const button = nav.querySelector('.nav-hamburger button');
-  if (button) button.setAttribute('aria-label', expanded ? 'Close navigation' : 'Open navigation');
+  if (button) {
+    button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    button.setAttribute('aria-label', expanded ? 'Close navigation' : 'Open navigation');
+    button.querySelector('.nav-hamburger-label').textContent = expanded ? 'Close' : 'Menu';
+  }
   document.body.style.overflowY = expanded && !isDesktop.matches ? 'hidden' : '';
   if (!expanded) closePanels(nav);
 }
@@ -168,9 +172,17 @@ function toggleMenu(nav, force = null) {
  * Builds the nav sections list and its megamenu panels.
  * @param {Element} section authored nav section
  * @param {Element} nav nav element
- * @returns {{list: Element, panels: Element}}
+ * @returns {{title: Element|null, list: Element, panels: Element}}
  */
 function buildSections(section, nav) {
+  // optional authored menu title, shown above the list in the mobile menu
+  const authoredTitle = section ? section.querySelector(':scope > p') : null;
+  let title = null;
+  if (authoredTitle) {
+    title = document.createElement('p');
+    title.className = 'nav-menu-title';
+    title.textContent = authoredTitle.textContent.trim();
+  }
   const list = document.createElement('ul');
   list.className = 'nav-sections';
   const panels = document.createElement('div');
@@ -207,7 +219,7 @@ function buildSections(section, nav) {
     list.append(item);
     panels.append(buildPanel(label, li, id));
   });
-  return { list, panels };
+  return { title, list, panels };
 }
 
 /**
@@ -251,8 +263,20 @@ export default async function decorate(block) {
     bar.append(barBrand);
   }
 
-  const { list, panels } = buildSections(navSection, nav);
+  const { title, list, panels } = buildSections(navSection, nav);
+  if (title) bar.append(title);
   bar.append(list);
+
+  // mobile: back from a category panel to the main list
+  const back = document.createElement('button');
+  back.type = 'button';
+  back.className = 'nav-back';
+  back.setAttribute('aria-label', 'Back to main menu');
+  back.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closePanels(nav);
+  });
+  bar.append(back);
 
   if (toolsSection) {
     const tools = document.createElement('div');
@@ -266,10 +290,14 @@ export default async function decorate(block) {
 
   const hamburger = document.createElement('div');
   hamburger.className = 'nav-hamburger';
-  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-      <span class="nav-hamburger-icon"></span>
+  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-expanded="false" aria-label="Open navigation">
+      <span class="nav-hamburger-label">Menu</span>
+      <span class="nav-trigger-icon" aria-hidden="true"></span>
     </button>`;
-  hamburger.addEventListener('click', () => toggleMenu(nav));
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu(nav);
+  });
   bar.append(hamburger);
 
   nav.append(panels, bar);

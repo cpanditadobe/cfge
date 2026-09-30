@@ -1,20 +1,242 @@
+/*
+ * Footer — coforge.com
+ * Cream band: large heading, then a brand column (intro, CTA, logo) beside
+ * legal link columns, social icons and the licensing notice.
+ * Mobile (base): single stacked column; the logo moves to the very end.
+ * Values measured from the source site.
+ */
+
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--brand-cream);
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer .footer-inner {
+  box-sizing: border-box;
+
+  /* 20px source padding + 84px so the fixed nav bar never covers the last lines */
+  padding: 40px 32px 104px;
+  color: rgb(29 42 61);
+  font-family: Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
 }
 
 footer .footer p {
   margin: 0;
 }
 
+/* heading */
+footer .footer-heading h2 {
+  margin: 0 0 60px;
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 50px;
+  letter-spacing: -2px;
+}
+
+/* mobile: flatten brand + main so their parts can be reordered into one column */
+footer .footer-body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .footer-brand,
+footer .footer-main {
+  display: contents;
+}
+
+footer .footer-intro {
+  order: 1;
+}
+
+footer .footer .footer-cta-wrapper {
+  order: 2;
+  margin-top: 32px;
+}
+
+footer a.footer-cta:any-link {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 48px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgb(242 103 78);
+  color: var(--brand-white);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  text-decoration: none;
+}
+
+footer a.footer-cta:hover {
+  color: var(--brand-white);
+  text-decoration: none;
+}
+
+footer .footer-row {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 104px;
+}
+
+footer .footer-notice {
+  order: 4;
+  margin-top: 40px;
+  color: var(--text-color);
+}
+
+footer .footer .footer-logo {
+  order: 5;
+  margin-top: 64px;
+}
+
+footer .footer-logo img {
+  display: block;
+  width: 234px;
+  height: auto;
+}
+
+/* legal links */
+footer .footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+footer .footer-links ul,
+footer .footer-social ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer .footer-links a:any-link {
+  display: inline-block;
+  padding: 3px 0;
+  color: rgb(29 42 61);
+  text-decoration: underline;
+}
+
+footer .footer-links a:hover {
+  color: rgb(29 42 61);
+}
+
+/* social */
+footer .footer-social > p {
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+footer .footer-social ul {
+  display: flex;
+  gap: 16px;
+}
+
+footer .footer-social a:any-link {
+  display: block;
+}
+
+/* source icons have no hover effect; cancel the global link hover */
+footer .footer-social a:hover {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+footer .footer-social img {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+/* licensing notice + copyright */
+footer .footer-notice > p {
+  margin-bottom: 32px;
+}
+
+footer .footer-notice > p:last-child {
+  margin-bottom: 0;
+}
+
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer .footer-inner {
+    padding: 40px 56px 104px;
+  }
+
+  footer .footer-heading h2 {
+    margin-bottom: 56px;
+    font-size: 62px;
+    line-height: 74px;
+  }
+
+  footer .footer-body {
+    display: grid;
+    grid-template-columns: 591fr 737fr;
+  }
+
+  footer .footer-brand {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+  }
+
+  footer .footer-main {
+    display: block;
+  }
+
+  footer .footer-intro {
+    max-width: 264px;
+  }
+
+  footer a.footer-cta:any-link {
+    padding: 8px 28.8px;
+  }
+
+  footer .footer-row {
+    flex-direction: row;
+    gap: 0;
+    margin-top: 0;
+  }
+
+  footer .footer-links {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  footer .footer-links ul {
+    width: 206px;
+  }
+
+  footer .footer-links ul + ul {
+    width: 229px;
+  }
+
+  footer .footer-social {
+    flex: 1;
+  }
+
+  footer .footer-social > p {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  footer .footer-notice {
+    margin-top: 56px;
+  }
+
+  footer .footer .footer-logo {
+    margin-top: auto;
+    padding-top: 40px;
   }
 }
