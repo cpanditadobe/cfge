@@ -1,0 +1,249 @@
+/* Block: carousel-testimonial
+ * Light testimonial slider migrated from coforge.com.
+ * Values extracted from source computed styles (.testimonial-card and controls).
+ * Decorated DOM per slide:
+ *   li.carousel-testimonial-slide
+ *     > .carousel-testimonial-slide-author  (circular photo)
+ *     > .carousel-testimonial-slide-content (h3 + p:descriptor + p:quote + p:name + p:title)
+ */
+
+.carousel-testimonial .carousel-testimonial-slides-container {
+  position: relative;
+}
+
+.carousel-testimonial .carousel-testimonial-slides,
+.carousel-testimonial .carousel-testimonial-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-testimonial .carousel-testimonial-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-testimonial .carousel-testimonial-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Slide / card --- */
+.carousel-testimonial .carousel-testimonial-slide {
+  position: relative;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+  padding: 28px 24px;
+  border-radius: 28px;
+  background-color: var(--brand-white);
+}
+
+/* content column holds company, descriptor, quote, name, title */
+.carousel-testimonial .carousel-testimonial-slide-content {
+  position: relative;
+  order: 1;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+/* company name */
+.carousel-testimonial .carousel-testimonial-slide-content h3 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -1px;
+  color: rgb(7 20 38);
+}
+
+/* descriptor (first paragraph) */
+.carousel-testimonial .carousel-testimonial-slide-content p:nth-of-type(1) {
+  margin: 0 0 2px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23px;
+  color: var(--text-color);
+}
+
+/* quotation (second paragraph) */
+.carousel-testimonial .carousel-testimonial-slide-content p:nth-of-type(2) {
+  margin: 32px 0 16px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text-color);
+}
+
+/* author name (third paragraph) — anchored to the footer band */
+.carousel-testimonial .carousel-testimonial-slide-content p:nth-of-type(3) {
+  margin: auto 110px 0 96px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.6px;
+  color: rgb(7 20 38);
+}
+
+/* author title (fourth paragraph) */
+.carousel-testimonial .carousel-testimonial-slide-content p:nth-of-type(4) {
+  margin: 0 110px 14px 96px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.6px;
+  color: rgb(7 20 38);
+}
+
+/* --- Circular author photo (author cell, image only) --- */
+.carousel-testimonial .carousel-testimonial-slide-author {
+  position: absolute;
+  bottom: 28px;
+  left: 24px;
+  order: 2;
+  margin: 0;
+}
+
+.carousel-testimonial .carousel-testimonial-slide-author img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 1px solid rgb(217 221 225);
+  object-fit: cover;
+}
+
+/* --- Orange quote-icon accent (bottom-right of card) --- */
+.carousel-testimonial .carousel-testimonial-slide::after {
+  content: "\201D";
+  position: absolute;
+  right: 24px;
+  bottom: 28px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background-color: var(--brand-orange);
+  color: var(--brand-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* --- Pagination dots --- */
+.carousel-testimonial .carousel-testimonial-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 24px 0 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.carousel-testimonial .carousel-testimonial-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(181 195 227);
+  transition: background-color 0.2s;
+}
+
+.carousel-testimonial .carousel-testimonial-slide-indicator button:disabled,
+.carousel-testimonial .carousel-testimonial-slide-indicator button:hover,
+.carousel-testimonial .carousel-testimonial-slide-indicator button:focus-visible {
+  background-color: rgb(8 35 64);
+}
+
+/* --- Prev / next navigation buttons --- */
+.carousel-testimonial .carousel-testimonial-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  right: 8px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-testimonial .carousel-testimonial-navigation-buttons button {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background-color: rgb(7 31 79);
+  transition: background-color 0.2s;
+}
+
+.carousel-testimonial .carousel-testimonial-navigation-buttons button:hover,
+.carousel-testimonial .carousel-testimonial-navigation-buttons button:focus-visible {
+  background-color: var(--brand-navy);
+}
+
+.carousel-testimonial .carousel-testimonial-navigation-buttons button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  width: 9px;
+  height: 9px;
+  border: 2px solid rgb(255 255 255);
+  border-bottom: 0;
+  border-left: 0;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-testimonial .carousel-testimonial-navigation-buttons button.slide-next::after {
+  left: calc(50% - 2px);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* --- Desktop --- */
+@media (width >= 900px) {
+  .carousel-testimonial .carousel-testimonial-slide {
+    min-height: 400px;
+    padding: 40px 32px;
+  }
+
+  .carousel-testimonial .carousel-testimonial-slide-content p:nth-of-type(3) {
+    margin: auto 120px 0;
+  }
+
+  .carousel-testimonial .carousel-testimonial-slide-content p:nth-of-type(4) {
+    margin: 0 120px 26px;
+  }
+
+  .carousel-testimonial .carousel-testimonial-slide-author {
+    bottom: 40px;
+    left: 32px;
+  }
+
+  .carousel-testimonial .carousel-testimonial-slide-author img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .carousel-testimonial .carousel-testimonial-slide::after {
+    right: 32px;
+    bottom: 40px;
+    width: 88px;
+    height: 88px;
+    border-radius: 16px;
+    font-size: 96px;
+  }
+}

@@ -10,6 +10,7 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  toClassName,
 } from './aem.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -143,6 +144,36 @@ function decorateButtons(main) {
 }
 
 /**
+ * Applies `section-metadata` blocks as section classes/styles.
+ * The vendored aem.js decorateSections does not consume section-metadata,
+ * so a `<div class="section-metadata">` would otherwise be treated as a block
+ * (and 404). This reads each key/value row and applies it to the parent section:
+ * a `style` row becomes space-separated CSS classes on the section.
+ * @param {Element} main The main element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll('.section > div > .section-metadata').forEach((sectionMeta) => {
+    const section = sectionMeta.closest('.section');
+    [...sectionMeta.children].forEach((row) => {
+      if (row.children.length === 2) {
+        const key = toClassName(row.children[0].textContent);
+        const val = row.children[1].textContent.trim();
+        if (key === 'style') {
+          val.split(',').forEach((s) => {
+            const style = toClassName(s.trim());
+            if (style) section.classList.add(style);
+          });
+        } else {
+          section.dataset[key] = val;
+        }
+      }
+    });
+    // remove the metadata block wrapper so it is not treated as a block
+    sectionMeta.parentElement.remove();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -151,6 +182,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionMetadata(main);
   decorateBlocks(main);
   decorateButtons(main);
 }

@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.coforge.com/",
+  "path": "index",
+  "timestamp": "2026-09-24T05:31:40.443Z",
+  "title": "Coforge | Where AI Engineering Meets Industry Expertise",
+  "template": "home",
+  "blocks": [
+    "hero-split",
+    "cards-insights",
+    "cards-feature",
+    "carousel-testimonial",
+    "tabs-projects",
+    "carousel-logos",
+    "columns-quote",
+    "accordion-industry"
+  ]
+}

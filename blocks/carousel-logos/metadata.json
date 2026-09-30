@@ -1,0 +1,14 @@
+{
+  "variantName": "carousel-logos",
+  "baseBlock": "carousel",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "layout": "compact rotating slider of logo + statement cards"
+  },
+  "contentPattern": "One row per slide; each slide has an analyst firm logo and a recognition statement.",
+  "usage": "Rotating slider of analyst recognitions (logo plus statement).",
+  "canonicalModel": "collection",
+  "options": [],
+  "memberVariantIds": ["carousel-logos"]
+}

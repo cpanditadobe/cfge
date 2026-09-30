@@ -1,0 +1,14 @@
+{
+  "variantName": "cards-insights",
+  "baseBlock": "cards",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "comfortable",
+    "layout": "dark rounded band: left promo panel + right list of insight items"
+  },
+  "contentPattern": "First row is a promo panel (heading, optional image, CTA link). Each following row is an insight item (eyebrow label + title + link).",
+  "usage": "Featured insights band highlighting a promo alongside a short list of insight links.",
+  "canonicalModel": "collection",
+  "options": [],
+  "memberVariantIds": ["cards-insights"]
+}

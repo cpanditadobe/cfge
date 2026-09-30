@@ -1,0 +1,168 @@
+/*
+ * Accordion Industry block
+ * Values extracted from coforge.com (.row-number-23) computed styles.
+ * Decorated DOM:
+ *   .accordion-industry
+ *     details.accordion-industry-item
+ *       summary.accordion-industry-item-label  (p>picture>img icon + p title)
+ *       .accordion-industry-item-body           (p description + p.button-container > a.button)
+ * The taupe section band is handled by styles.css .section.taupe.
+ */
+
+/* ---- item divider ---- */
+.accordion-industry .accordion-industry-item {
+  border-bottom: 1px solid rgb(200 189 167);
+}
+
+/* ---- label row (icon + title, with expand indicator on the right) ---- */
+.accordion-industry .accordion-industry-item-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 46px 24px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.accordion-industry .accordion-industry-item-label::-webkit-details-marker {
+  display: none;
+}
+
+/* industry icon */
+.accordion-industry .accordion-industry-item-label p {
+  margin: 0;
+}
+
+.accordion-industry .accordion-industry-item-label picture,
+.accordion-industry .accordion-industry-item-label img {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* industry title (the text paragraph) */
+.accordion-industry .accordion-industry-item-label p:last-of-type {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: rgb(4 18 34);
+}
+
+.accordion-industry .accordion-industry-item[open] .accordion-industry-item-label p:last-of-type {
+  color: rgb(58 84 122);
+}
+
+/* ---- expand indicator: orange plus that rotates to an x when open ---- */
+.accordion-industry .accordion-industry-item-label::before,
+.accordion-industry .accordion-industry-item-label::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  background-color: var(--brand-orange);
+  transition: transform 0.2s ease;
+}
+
+/* vertical bar */
+.accordion-industry .accordion-industry-item-label::before {
+  width: 2px;
+  height: 16px;
+  transform: translate(50%, -50%);
+}
+
+/* horizontal bar */
+.accordion-industry .accordion-industry-item-label::after {
+  width: 16px;
+  height: 2px;
+  transform: translate(50%, -50%);
+}
+
+.accordion-industry .accordion-industry-item[open] .accordion-industry-item-label::before {
+  transform: translate(50%, -50%) rotate(45deg);
+}
+
+.accordion-industry .accordion-industry-item[open] .accordion-industry-item-label::after {
+  transform: translate(50%, -50%) rotate(45deg);
+}
+
+/* keep the summary bottom tight once open (body supplies the lower spacing) */
+.accordion-industry .accordion-industry-item[open] .accordion-industry-item-label {
+  padding-bottom: 16px;
+}
+
+/* ---- body / description ---- */
+.accordion-industry .accordion-industry-item-body {
+  padding: 0 0 24px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.accordion-industry .accordion-industry-item-body p {
+  margin: 0 0 2px;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 23px;
+  color: rgb(4 18 34);
+}
+
+/* ---- Learn More button (navy pill) ---- */
+
+/* the Learn More link is not auto-decorated as a .button, so style the
+   anchor and its wrapping paragraph directly; keep .button covered too. */
+/* stylelint-disable-next-line no-descending-specificity */
+.accordion-industry .accordion-industry-item-body p:has(> a),
+.accordion-industry .accordion-industry-item-body .button-container {
+  margin: 16px 0 0;
+}
+
+main .accordion-industry .accordion-industry-item-body a:any-link,
+main .accordion-industry a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 28.8px;
+  background-color: rgb(4 18 34);
+  color: rgb(238 236 230);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+main .accordion-industry .accordion-industry-item-body a:any-link:hover,
+main .accordion-industry a.button:any-link:hover {
+  background-color: var(--brand-orange);
+  color: var(--brand-white);
+  text-decoration: none;
+}
+
+/* ---- desktop ---- */
+@media (width >= 900px) {
+  .accordion-industry .accordion-industry-item-label {
+    padding: 40px 46px 40px 0;
+    gap: 12px;
+  }
+
+  .accordion-industry .accordion-industry-item[open] .accordion-industry-item-label {
+    padding-bottom: 16px;
+  }
+
+  .accordion-industry .accordion-industry-item-label picture,
+  .accordion-industry .accordion-industry-item-label img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .accordion-industry .accordion-industry-item-label p:last-of-type {
+    font-size: 32px;
+    line-height: 28px;
+    padding-left: 4px;
+  }
+
+  .accordion-industry .accordion-industry-item-body {
+    padding: 0 120px 40px 0;
+  }
+}

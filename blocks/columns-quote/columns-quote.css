@@ -1,0 +1,111 @@
+/* columns-quote — featured analyst quote card (source: coforge.com .testimonial-card) */
+
+.columns-quote {
+  margin: 0 auto;
+  max-width: 1328px;
+}
+
+.columns-quote > div {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border-radius: 28px;
+  background-color: var(--brand-white);
+  padding: 40px 24px;
+}
+
+/* --- attribution column (logo + company + author) --- */
+.columns-quote .columns-quote-attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.columns-quote .columns-quote-attribution p {
+  margin: 0;
+}
+
+.columns-quote .columns-quote-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  margin: 0 0 16px;
+  border: 1px solid rgb(230 228 222);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.columns-quote .columns-quote-logo picture,
+.columns-quote .columns-quote-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.columns-quote .columns-quote-name {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--text-color);
+}
+
+.columns-quote .columns-quote-name ~ p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--text-color);
+}
+
+/* company label (the last paragraph, e.g. "Zinnov") rendered large & bold */
+.columns-quote .columns-quote-attribution p:last-child {
+  margin-top: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: var(--text-color);
+}
+
+/* --- quotation column --- */
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-quote .columns-quote-body p {
+  margin: 0 0 18px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.5px;
+  color: var(--text-color);
+}
+
+.columns-quote .columns-quote-body p:last-child {
+  margin-bottom: 0;
+}
+
+@media (width >= 900px) {
+  .columns-quote > div {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+    padding: 40px 32px;
+  }
+
+  .columns-quote .columns-quote-attribution {
+    flex: 0 0 24%;
+    order: 1;
+  }
+
+  .columns-quote .columns-quote-body {
+    flex: 1;
+    order: 0;
+  }
+
+  .columns-quote .columns-quote-body p {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+}

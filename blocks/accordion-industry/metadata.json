@@ -1,0 +1,14 @@
+{
+  "variantName": "accordion-industry",
+  "baseBlock": "accordion",
+  "visualCharacteristics": {
+    "colorScheme": "taupe",
+    "density": "comfortable",
+    "layout": "collapsible industry rows with icon + title expanding to description + CTA"
+  },
+  "contentPattern": "One row per industry: a label cell (icon + title) and a body cell (description + Learn More link).",
+  "usage": "List of industries where each row expands to reveal a description and link.",
+  "canonicalModel": "collection",
+  "options": [],
+  "memberVariantIds": ["accordion-industry"]
+}

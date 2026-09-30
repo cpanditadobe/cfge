@@ -1,0 +1,14 @@
+{
+  "variantName": "tabs-projects",
+  "baseBlock": "tabs",
+  "visualCharacteristics": {
+    "colorScheme": "accent-teal",
+    "density": "spacious",
+    "layout": "vertical tab labels beside a large content panel"
+  },
+  "contentPattern": "One row per project: a label cell and a panel content cell (image, title, description, CTA). Selecting a label swaps the panel.",
+  "usage": "Featured projects with a vertical label list that switches the displayed project panel.",
+  "canonicalModel": "collection",
+  "options": [],
+  "memberVariantIds": ["tabs-projects"]
+}

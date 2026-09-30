@@ -1,0 +1,76 @@
+/*
+ * Hero Split — coforge.com homepage hero.
+ * Two-column split (7:5): large headline left, square AI graphic right,
+ * vertically centered on the cream page background.
+ * Values extracted from source computed styles (see migration-work/hero-split-extracted.css).
+ */
+
+/* Full-bleed: escape the section's 1200px max-width so the hero can use the
+   full content width like the source. */
+.hero-split-container .hero-split-wrapper {
+  max-width: 100%;
+  padding: 0;
+}
+
+/* Mobile-first: single column, headline above the graphic. */
+.hero-split {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.hero-split .hero-split-content {
+  width: 100%;
+}
+
+/* Source headline margins are 0; override the global heading top/bottom margin. */
+.hero-split .hero-split-content h1,
+.hero-split .hero-split-content h2 {
+  margin: 0;
+  letter-spacing: -2px;
+}
+
+.hero-split .hero-split-visual {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Square AI graphic (source aspect-ratio 1/1, object-fit cover). */
+.hero-split .hero-split-visual picture,
+.hero-split .hero-split-visual img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Text-only hero fallback (no image cell authored). */
+.hero-split.no-visual .hero-split-content {
+  max-width: 900px;
+}
+
+@media (width >= 900px) {
+  .hero-split {
+    display: grid;
+
+    /* 7:5 split matching source (760.656px : 543.328px @ 1440). */
+    grid-template-columns: 7fr 5fr;
+    align-items: center;
+    gap: 24px;
+    min-height: 580px;
+    padding: 24px 56px 80px;
+  }
+
+  .hero-split .hero-split-content h1,
+  .hero-split .hero-split-content h2 {
+    /* Source: 62px / 74px line-height / -2px. Matches brand --heading-font-size-xxl. */
+    font-size: var(--heading-font-size-xxl);
+    line-height: 74px;
+  }
+}

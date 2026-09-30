@@ -1,0 +1,9 @@
+{
+  "sites": {
+    "cfge": {
+      "previewOrg": "cpanditadobe",
+      "previewSite": "cfge",
+      "contentHostUrl": "https://content.da.live/cpanditadobe/cfge/"
+    }
+  }
+}

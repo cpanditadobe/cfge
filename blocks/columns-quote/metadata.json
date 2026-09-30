@@ -1,0 +1,14 @@
+{
+  "variantName": "columns-quote",
+  "baseBlock": "columns",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "layout": "two-column highlighted quote: logo/attribution beside multi-paragraph quotation"
+  },
+  "contentPattern": "Single row, two columns: one column with logo and author attribution, the other with a multi-paragraph quotation.",
+  "usage": "Single featured analyst/customer quote presented side by side with a logo and attribution.",
+  "canonicalModel": "standalone",
+  "options": [],
+  "memberVariantIds": ["columns-quote"]
+}

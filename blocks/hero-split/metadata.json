@@ -1,0 +1,14 @@
+{
+  "variantName": "hero-split",
+  "baseBlock": "hero",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "layout": "two-column split (headline + hero visual), stacks on mobile"
+  },
+  "contentPattern": "Single row, two cells: text content (large headline + optional supporting copy) and a hero visual (image/graphic). Image cell may be omitted for a text-only hero.",
+  "usage": "Top-of-page banner introducing the page with a prominent headline beside a hero graphic.",
+  "canonicalModel": "standalone",
+  "options": [],
+  "memberVariantIds": ["hero-split"]
+}

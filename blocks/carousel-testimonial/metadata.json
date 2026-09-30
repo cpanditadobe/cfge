@@ -1,0 +1,14 @@
+{
+  "variantName": "carousel-testimonial",
+  "baseBlock": "carousel",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "layout": "rotating testimonial slider with indicators and prev/next controls"
+  },
+  "contentPattern": "One row per slide; each slide has company name, descriptor, quotation, and author (photo/name/title).",
+  "usage": "Rotating slider of customer testimonials.",
+  "canonicalModel": "collection",
+  "options": [],
+  "memberVariantIds": ["carousel-testimonial"]
+}

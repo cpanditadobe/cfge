@@ -1,0 +1,14 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "layout": "light row of feature cards (3-up on desktop), image on top"
+  },
+  "contentPattern": "One row per card: image plus a body with title and description.",
+  "usage": "Row of feature highlights, each with a top image, title, and supporting description.",
+  "canonicalModel": "collection",
+  "options": [],
+  "memberVariantIds": ["cards-feature"]
+}

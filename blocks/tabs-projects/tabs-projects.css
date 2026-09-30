@@ -1,0 +1,178 @@
+/* Featured Projects — teal full-bleed band with vertical project tabs */
+
+/* Escape the section max-width so the teal card runs edge-to-edge */
+.tabs-projects-wrapper {
+  max-width: 100% !important;
+  padding: 0 16px !important;
+}
+
+.tabs-projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  border-radius: 24px;
+  background-color: rgb(0 139 123);
+  color: var(--brand-white);
+}
+
+/* left column: eyebrow + tab list */
+.tabs-projects .tabs-projects-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px;
+}
+
+.tabs-projects .tabs-projects-eyebrow {
+  margin: 0 0 24px;
+  color: var(--brand-cream);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 0.72px;
+  text-transform: uppercase;
+}
+
+.tabs-projects .tabs-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tabs-projects .tabs-projects-list button {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background-color: transparent;
+  color: rgb(255 255 255 / 35%);
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.tabs-projects .tabs-projects-list button[aria-selected='true'] {
+  position: relative;
+  color: var(--brand-white);
+  font-weight: 700;
+  cursor: initial;
+}
+
+/* arrow indicator on the active tab */
+.tabs-projects .tabs-projects-list button[aria-selected='true']::before {
+  content: '→';
+  position: absolute;
+  left: -32px;
+  font-weight: 400;
+}
+
+/* right column: image panel with overlay caption */
+.tabs-projects .tabs-projects-panel {
+  position: relative;
+  min-height: 320px;
+  background-color: rgb(32 32 32);
+  overflow: hidden;
+}
+
+.tabs-projects .tabs-projects-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs-projects .tabs-projects-media {
+  position: absolute;
+  inset: 0;
+}
+
+.tabs-projects .tabs-projects-media picture,
+.tabs-projects .tabs-projects-media p {
+  margin: 0;
+  height: 100%;
+}
+
+.tabs-projects .tabs-projects-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* the h3 project title is redundant with the tab label — hide it */
+.tabs-projects .tabs-projects-caption h3 {
+  display: none;
+}
+
+/* overlay caption card */
+.tabs-projects .tabs-projects-caption {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: rgb(7 20 38);
+  color: var(--brand-white);
+}
+
+.tabs-projects .tabs-projects-caption p {
+  margin: 0;
+  color: var(--brand-white);
+  font-size: 18px;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+
+.tabs-projects .tabs-projects-caption a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--brand-white);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.tabs-projects .tabs-projects-caption a:hover {
+  color: var(--brand-cream);
+}
+
+@media (width >= 900px) {
+  .tabs-projects-wrapper {
+    padding: 0 32px !important;
+  }
+
+  .tabs-projects {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+
+  .tabs-projects .tabs-projects-nav {
+    justify-content: space-between;
+    padding: 40px;
+  }
+
+  .tabs-projects .tabs-projects-eyebrow {
+    margin: 0 0 2px;
+  }
+
+  .tabs-projects .tabs-projects-list {
+    padding: 120px 0;
+    margin-left: 32px;
+  }
+
+  .tabs-projects .tabs-projects-list button {
+    font-size: 52px;
+    line-height: 1.08;
+  }
+
+  .tabs-projects .tabs-projects-panel {
+    min-height: 620px;
+  }
+
+  .tabs-projects .tabs-projects-caption {
+    right: 40px;
+    bottom: 40px;
+    left: 40px;
+    padding: 24px;
+  }
+}

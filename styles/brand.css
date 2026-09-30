@@ -1,0 +1,24 @@
+:root {
+  --heading-font-family: "Anek Latin", sans-serif;
+  --body-font-family: "Anek Latin", sans-serif;
+  --background-color: rgb(238 236 230);
+  --text-color: rgb(4 18 34);
+  --link-color: rgb(4 18 34);
+  --link-hover-color: rgb(230 74 25);
+
+  /* brand accents observed on coforge.com */
+  --brand-navy: rgb(4 18 34);
+  --brand-cream: rgb(238 236 230);
+  --brand-taupe: rgb(233 229 220);
+  --brand-teal: rgb(0 122 114);
+  --brand-orange: rgb(230 74 25);
+  --brand-white: rgb(255 255 255);
+  --section-padding: 48px;
+  --nav-height: 80px;
+  --heading-size-xxl: 62px;
+  --heading-size-xl: 62px;
+  --heading-size-l: 52px;
+  --heading-size-m: 32px;
+  --heading-size-s: 24px;
+  --heading-size-xs: 20px;
+}

@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.coforge.com/"
+      ],
+      "representativeUrl": "https://www.coforge.com/",
+      "description": "Coforge homepage: hero, intro text, featured insights, feature cards, testimonial slider, featured projects tabs, analyst recognitions slider, featured analyst quote, industries accordion.",
+      "urlPattern": "/",
+      "blocks": [
+        {
+          "name": "hero-split",
+          "instances": [".row-number-1.dnd-section"]
+        },
+        {
+          "name": "cards-insights",
+          "instances": [".row-number-5.dnd-section"]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [".row-number-9.dnd-section"]
+        },
+        {
+          "name": "carousel-testimonial",
+          "instances": [".row-number-11.dnd-section"]
+        },
+        {
+          "name": "tabs-projects",
+          "instances": [".row-number-13.dnd-section"]
+        },
+        {
+          "name": "carousel-logos",
+          "instances": [".row-number-15.dnd-section"]
+        },
+        {
+          "name": "columns-quote",
+          "instances": [".row-number-17.dnd-section"]
+        },
+        {
+          "name": "accordion-industry",
+          "instances": [".row-number-23.dnd-section"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "hero",
+          "selector": [".row-number-1.dnd-section"],
+          "style": null,
+          "blocks": ["hero-split"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2",
+          "name": "challenge-intro",
+          "selector": [".row-number-3.dnd-section"],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [".row-number-3.dnd-section"]
+        },
+        {
+          "id": "rc3",
+          "name": "featured-insights",
+          "selector": [".row-number-5.dnd-section"],
+          "style": null,
+          "blocks": ["cards-insights"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc4",
+          "name": "systems-intro",
+          "selector": [".row-number-7.dnd-section"],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [".row-number-7.dnd-section"]
+        },
+        {
+          "id": "rc5",
+          "name": "feature-cards",
+          "selector": [".row-number-9.dnd-section"],
+          "style": null,
+          "blocks": ["cards-feature"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc6",
+          "name": "testimonials",
+          "selector": [".row-number-11.dnd-section"],
+          "style": null,
+          "blocks": ["carousel-testimonial"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc7",
+          "name": "featured-projects",
+          "selector": [".row-number-13.dnd-section"],
+          "style": null,
+          "blocks": ["tabs-projects"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc8",
+          "name": "analyst-recognitions",
+          "selector": [".row-number-15.dnd-section"],
+          "style": null,
+          "blocks": ["carousel-logos"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc9",
+          "name": "featured-analyst-quote",
+          "selector": [".row-number-17.dnd-section"],
+          "style": null,
+          "blocks": ["columns-quote"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc10",
+          "name": "spacer",
+          "selector": [".row-number-19.dnd-section"],
+          "style": null,
+          "blocks": [],
+          "defaultContent": []
+        },
+        {
+          "id": "rc11",
+          "name": "domain-intro",
+          "selector": [".row-number-21.dnd-section"],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [".row-number-21.dnd-section"]
+        },
+        {
+          "id": "rc12",
+          "name": "industries",
+          "selector": [".row-number-23.dnd-section"],
+          "style": "taupe",
+          "blocks": ["accordion-industry"],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}
